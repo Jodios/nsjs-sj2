@@ -1,7 +1,26 @@
 [gd_scene load_steps=2 format=3 uid="uid://qe2f13di2u5s"]
 
-[ext_resource type="PackedScene" uid="uid://7eq55jxxf3gn" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://8r7kopokulgm" path="res://main.gd" id="1_ig7tw"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_ig7tw")
 
-[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 864.0
+
+[node name="StartButton" type="Button" parent="AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 80
+text = "Start
+"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 451.0
+offset_top = 187.0
+offset_right = 1469.0
+offset_bottom = 324.0
+theme_override_font_sizes/font_size = 100
+text = "Game Name Pending"

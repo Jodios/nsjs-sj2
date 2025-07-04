@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bheslm81mv62k"]
+
+[ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_cwplf"]
+[ext_resource type="Texture2D" uid="uid://rq66amdsstal" path="res://assets/bedroom.jpg" id="2_1vprx"]
+[ext_resource type="PackedScene" uid="uid://o7yoihi7d0ft" path="res://utils/path.tscn" id="3_10w8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2o5o"]
+size = Vector2(1373, 540)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v47ap"]
+size = Vector2(850.5, 540)
+
+[node name="Bedroom" type="Node2D"]
+script = ExtResource("1_cwplf")
+
+[node name="Bedroom" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_1vprx")
+
+[node name="Path" parent="." node_paths=PackedStringArray("path_area", "spawn_point") instance=ExtResource("3_10w8b")]
+position = Vector2(1745, 194)
+path_name = "3"
+to_path_name = "3"
+path_area = NodePath("Area2D")
+to = 3
+spawn_point = NodePath("ColorRect")
+
+[node name="Area2D" type="Area2D" parent="Path"]
+position = Vector2(-1154, 916)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Area2D"]
+position = Vector2(395.5, 213)
+shape = SubResource("RectangleShape2D_u2o5o")
+
+[node name="ColorRect" type="ColorRect" parent="Path"]
+offset_left = -860.0
+offset_top = 768.0
+offset_right = -820.0
+offset_bottom = 808.0
+
+[node name="Path2" parent="." node_paths=PackedStringArray("path_area", "spawn_point") instance=ExtResource("3_10w8b")]
+position = Vector2(1745, 194)
+path_name = "1"
+to_path_name = "1"
+path_area = NodePath("Area2D")
+to = 2
+spawn_point = NodePath("ColorRect")
+
+[node name="Area2D" type="Area2D" parent="Path2"]
+position = Vector2(-1154, 916)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2/Area2D"]
+position = Vector2(1583, -298)
+shape = SubResource("RectangleShape2D_v47ap")
+
+[node name="ColorRect" type="ColorRect" parent="Path2"]
+offset_left = -81.0
+offset_top = 592.0
+offset_right = -41.0
+offset_bottom = 632.0
