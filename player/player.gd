@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed : float = 7500
+@export var speed : float = 20500
 
 var previousDirection : Vector2
 
