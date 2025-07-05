@@ -18,12 +18,13 @@ position = Vector2(960, 540)
 texture = ExtResource("2_1vprx")
 
 [node name="Path" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
+visible = false
 position = Vector2(1745, 194)
 script = ExtResource("3_whf2s")
 path_name = "3"
 to_path_name = "3"
-path_area = NodePath("Area2D")
 to = 3
+path_area = NodePath("Area2D")
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path"]
@@ -40,12 +41,13 @@ offset_right = -822.0
 offset_bottom = 793.0
 
 [node name="Path2" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
+visible = false
 position = Vector2(1745, 194)
 script = ExtResource("3_whf2s")
 path_name = "1"
 to_path_name = "1"
-path_area = NodePath("Area2D")
 to = 2
+path_area = NodePath("Area2D")
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path2"]
@@ -60,3 +62,24 @@ offset_left = -81.0
 offset_top = 592.0
 offset_right = -41.0
 offset_bottom = 632.0
+
+[node name="Walls" type="Node2D" parent="."]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(0, 1079, 254, 1079, 253, 1234, 1627, 1237, 1626, 1079, 1920, 1079, 1920, -1, 0, 0, 0, 1038, -48, 1038, -51, -69, 1949, -68, 1955, 1171, 1949, 1361, 7, 1346)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(0, 1039, 0, 1081, -17, 1081, -17, 1039)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(675, 26, 665, 32, 661, 46, 661, 59, 666, 68, 674, 74, 685, 73, 690, 88, 694, 490, 675, 501, 678, 526, 695, 535, 718, 516, 1049, 496, 1054, 518, 1090, 518, 1098, 495, 1084, 479, 1077, 479, 1073, 58, 1087, 44, 1087, 23, 1086, 1, 1047, 1, 679, 1)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(281, 253, 291, 673, 145, 680, -6, 679, -5, 261)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(1125, 0, 1134, 168, 1154, 187, 1478, 172, 1487, -4)

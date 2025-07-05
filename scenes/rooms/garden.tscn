@@ -15,12 +15,13 @@ position = Vector2(960, 540)
 texture = ExtResource("2_1xgwl")
 
 [node name="Path" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
+visible = false
 position = Vector2(1745, 194)
 script = ExtResource("3_arq63")
 path_name = "1"
 to_path_name = "1"
-path_area = NodePath("Area2D")
 to = 1
+path_area = NodePath("Area2D")
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path"]
@@ -35,3 +36,32 @@ offset_left = -1629.0
 offset_top = 314.0
 offset_right = -1589.0
 offset_bottom = 354.0
+
+[node name="Walls" type="Node2D" parent="."]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(0, 130, 0, 0, 10, 0, 1920, 0, 1920, 1080, 0, 1080, 0, 695, -63, 695, -63, 1130, 2022, 1150, 2007, -90, -120, -78, -126, 134)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(406, 98, 386, 119, 375, 132, 370, 152, 366, 181, 368, 228, 377, 262, 395, 283, 427, 299, 452, 304, 486, 298, 526, 281, 563, 255, 587, 225, 596, 198, 609, 209, 610, 224, 611, 230, 602, 241, 593, 257, 593, 279, 597, 299, 612, 312, 646, 308, 664, 293, 672, 275, 671, 252, 663, 241, 648, 232, 633, 227, 619, 224, 626, 189, 612, 180, 621, 166, 615, 142, 592, 147, 568, 117, 547, 103, 519, 91, 490, 85, 456, 82, 428, 88)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(508, 725, 508, 699, 518, 670, 541, 647, 570, 634, 611, 634, 634, 641, 657, 659, 677, 681, 692, 708, 697, 727, 694, 757, 682, 780, 658, 801, 634, 818, 602, 822, 555, 807, 525, 777)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(323, 648, 336, 689, 394, 927, 427, 922, 449, 898, 481, 895, 517, 895, 532, 883, 533, 867, 528, 857, 499, 871, 423, 637, 448, 623, 439, 609)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(642, 621, 690, 551, 728, 553, 759, 565, 774, 587, 736, 675)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(781, 221, 787, 175, 789, 134, 826, 117, 862, 88, 931, 99, 929, 156, 905, 170, 891, 183, 891, 226, 859, 252)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(1661, 650, 1685, 522, 1717, 481, 1772, 450, 1780, 461, 1812, 464, 1814, 519, 1816, 679, 1759, 759, 1658, 768, 1635, 666)
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
+polygon = PackedVector2Array(1466, 915, 1558, 816, 1613, 700, 1629, 637, 1622, 544, 1614, 491, 1656, 414, 1676, 349, 1658, 263, 1617, 197, 1557, 157, 1501, 103, 1467, 85, 1426, 90, 1365, 116, 1333, 120, 1200, 113, 1088, 121, 1021, 148, 970, 178, 923, 229, 894, 296, 889, 337, 897, 409, 888, 471, 852, 601, 823, 682, 792, 774, 786, 819, 787, 855, 796, 883, 814, 904, 850, 909, 892, 904, 933, 927, 995, 936, 1058, 949, 1120, 984, 1192, 1007, 1256, 1014, 1323, 1002)
