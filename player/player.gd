@@ -8,7 +8,7 @@ var previousDirection : Vector2
 func _ready():
 	previousDirection = Vector2.RIGHT
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# This is run each frame so the timing isn't constant
 	pass
 	

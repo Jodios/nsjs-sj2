@@ -12,7 +12,11 @@ func _ready() -> void:
 	path_area.body_entered.connect(handle_entry)
 
 func handle_entry(body: Node2D):
-	if body is not Player:
+	if body is not Player or Transitions.transition_cooldown:
 		return
+	Transitions.transition_cooldown = true
+	get_tree().create_timer(1).timeout.connect(func():
+		Transitions.transition_cooldown = false
+	)
 	Global.to_path = to_path_name
-	get_tree().call_deferred("change_scene_to_packed",Global.scences[to])
+	Transitions.fade_into(to)

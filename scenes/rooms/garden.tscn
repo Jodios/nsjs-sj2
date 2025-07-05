@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_p3pel"]
 [ext_resource type="Texture2D" uid="uid://dkfuxgjgkjhs" path="res://assets/garden.jpg" id="2_1xgwl"]
-[ext_resource type="PackedScene" uid="uid://o7yoihi7d0ft" path="res://utils/path.tscn" id="3_bw1yn"]
+[ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="3_arq63"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_34hyj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arq63"]
 size = Vector2(716.75, 1078)
 
 [node name="Garden" type="Node2D"]
@@ -14,8 +14,9 @@ script = ExtResource("1_p3pel")
 position = Vector2(960, 540)
 texture = ExtResource("2_1xgwl")
 
-[node name="Path" parent="." node_paths=PackedStringArray("path_area", "spawn_point") instance=ExtResource("3_bw1yn")]
+[node name="Path" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
 position = Vector2(1745, 194)
+script = ExtResource("3_arq63")
 path_name = "1"
 to_path_name = "1"
 path_area = NodePath("Area2D")
@@ -27,7 +28,7 @@ position = Vector2(-1154, 916)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Area2D"]
 position = Vector2(-924.375, -569)
-shape = SubResource("RectangleShape2D_34hyj")
+shape = SubResource("RectangleShape2D_arq63")
 
 [node name="ColorRect" type="ColorRect" parent="Path"]
 offset_left = -1629.0
