@@ -100,6 +100,7 @@ polygon = PackedVector2Array(1125, 0, 1134, 168, 1154, 187, 1478, 172, 1487, -4)
 
 [node name="Interaction" parent="." instance=ExtResource("5_khs6t")]
 position = Vector2(868, 285)
+dialogue = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
 position = Vector2(4.25, 12.5)

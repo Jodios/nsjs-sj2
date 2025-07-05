@@ -1,12 +1,40 @@
 extends Node2D
 
-@onready var start_button: Button = $AspectRatioContainer/StartButton
+@onready var start_button_area: Area2D = $PlayArea
+@onready var exit_button_area: Area2D = $QuitArea
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+var play_button_hovered = false
+var exit_button_hovered = false
 
 func _ready() -> void:
-	start_button.button_up.connect(start_game)
+	start_button_area.mouse_entered.connect(func():
+		animation_player.play("hover_play")
+		play_button_hovered = true
+	)
+	exit_button_area.mouse_entered.connect(func():
+		animation_player.play("hover_exit")
+		exit_button_hovered = true
+	)
+	start_button_area.mouse_exited.connect(func():
+		animation_player.play_backwards("hover_play")
+		play_button_hovered = false
+	)
+	exit_button_area.mouse_exited.connect(func():
+		animation_player.play_backwards("hover_exit")
+		exit_button_hovered = false
+	)
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("start"): start_game()
+	if event.is_action_released("exit"):
+		get_tree().quit()
+	if event.is_action_released("start"):
+		start_game()
+	if event is InputEventMouseButton and event.is_released() and (event as InputEventMouseButton).button_index == 1:
+		if play_button_hovered:
+			start_game()
+		if exit_button_hovered:
+			get_tree().quit()
 
 func start_game() -> void:
 	Transitions.fade_into(Global.Rooms.Bedroom)

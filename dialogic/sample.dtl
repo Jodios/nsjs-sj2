@@ -1,0 +1,6 @@
+join main_character left
+main_character: Howdy
+main_character: What's up?
+join weird_guy right [animation="Fade In Up"]
+weird_guy: dumb dumb dumb dumb dumb
+main_character: oh

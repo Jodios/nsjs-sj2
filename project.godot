@@ -24,9 +24,15 @@ GlobalMusic="*res://utils/global_music.tscn"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"main_character": "res://dialogic/characters/main_character.dch",
+"weird_guy": "res://dialogic/characters/weird_guy.dch",
+"weird_little_girl": "res://dialogic/characters/weird_little_girl.dch"
+}
 directories/dtl_directory={
-"sample": "res://timelines/sample.dtl"
+"little_girl_dialogue": "res://dialogic/timelines/little_girl_dialogue.dtl",
+"sample": "res://dialogic/sample.dtl",
+"weird_guy_dialogue": "res://dialogic/timelines/weird_guy_dialogue.dtl"
 }
 
 [display]
