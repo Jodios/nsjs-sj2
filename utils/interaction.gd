@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var dialogue: Global.Dialogue
+
 @onready var interaction_icon: Sprite2D = $InteractIcon
 var icon_size: Vector2 = Vector2.ZERO
 
@@ -30,4 +32,4 @@ func on_body_exited(body: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("interact") and player != null:
-		Dialogic.start("sample").process_mode = Node.PROCESS_MODE_ALWAYS
+		Dialogic.start(Global.dialogues[dialogue]).process_mode = Node.PROCESS_MODE_ALWAYS

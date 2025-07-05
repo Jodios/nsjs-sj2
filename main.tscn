@@ -1,26 +1,159 @@
-[gd_scene load_steps=2 format=3 uid="uid://qe2f13di2u5s"]
+[gd_scene load_steps=11 format=3 uid="uid://qe2f13di2u5s"]
 
 [ext_resource type="Script" uid="uid://8r7kopokulgm" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://b17v1ebd7apph" path="res://assets/menu.jpg" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bhf2u85qvuy4t" path="res://assets/playbutton.jpg" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://wpfprqcnml30" path="res://assets/quitbutton.jpg" id="4_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
+size = Vector2(333, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vw27"]
+size = Vector2(334, 137)
+
+[sub_resource type="Animation" id="Animation_1bvp3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Playbutton:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Playbutton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(522, 849)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Quitbutton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1293, 849)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Quitbutton:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lquwl"]
+resource_name = "hover_play"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Playbutton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(522, 849), Vector2(522, 837.427)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Playbutton:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.176278]
+}
+
+[sub_resource type="Animation" id="Animation_7mycd"]
+resource_name = "hover_exit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Quitbutton:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1293, 849), Vector2(1293, 837.427)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Quitbutton:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.176278]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_272bh"]
+_data = {
+&"RESET": SubResource("Animation_1bvp3"),
+&"hover_exit": SubResource("Animation_7mycd"),
+&"hover_play": SubResource("Animation_lquwl")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
-offset_right = 1920.0
-offset_bottom = 864.0
+[node name="Menu" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_1bvp3")
 
-[node name="StartButton" type="Button" parent="AspectRatioContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 80
-text = "Start
-"
+[node name="Playbutton" type="Sprite2D" parent="."]
+position = Vector2(522, 849)
+texture = ExtResource("3_lquwl")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 451.0
-offset_top = 187.0
-offset_right = 1469.0
-offset_bottom = 324.0
-theme_override_font_sizes/font_size = 100
-text = "Game Name Pending"
+[node name="PlayArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayArea"]
+position = Vector2(522.5, 849)
+shape = SubResource("RectangleShape2D_272bh")
+
+[node name="Quitbutton" type="Sprite2D" parent="."]
+position = Vector2(1293, 849)
+texture = ExtResource("4_7mycd")
+
+[node name="QuitArea" type="Area2D" parent="."]
+position = Vector2(771, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QuitArea"]
+position = Vector2(522, 848.5)
+shape = SubResource("RectangleShape2D_5vw27")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_272bh")
+}
