@@ -13,6 +13,15 @@ var scences = {
 }
 var to_path = null
 
+func _ready() -> void:
+	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	Dialogic.timeline_started.connect(func():
+		get_tree().paused = true
+	)
+	Dialogic.timeline_ended.connect(func():
+		get_tree().paused = false
+	)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("exit") and is_dev:
 		get_tree().quit()

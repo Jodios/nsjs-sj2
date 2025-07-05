@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed : float = 20500
 
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var player_sprite: Sprite2D = $Texture
 
 var previousDirection : Vector2
 var is_idle_path = "parameters/conditions/is_idle"
@@ -27,6 +28,14 @@ func _physics_process(delta: float) -> void:
 
 func _handle_movement(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
+	var joy_direction = Vector2(
+		Input.get_joy_axis(0, JOY_AXIS_LEFT_X),
+		Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+	)
+	if joy_direction.length() < 0.2:
+		joy_direction = Vector2.ZERO
+	direction += joy_direction
+	
 	if direction != Vector2.ZERO:
 		previousDirection = direction
 		animation_tree[is_idle_path] = false
@@ -36,3 +45,6 @@ func _handle_movement(delta: float) -> void:
 		animation_tree[is_walking_path] = false
 		
 	velocity = direction * speed * delta
+
+func get_size() -> Vector2:
+	return player_sprite.get_rect().size

@@ -1,15 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bheslm81mv62k"]
+[gd_scene load_steps=11 format=3 uid="uid://bheslm81mv62k"]
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_cwplf"]
 [ext_resource type="Texture2D" uid="uid://rq66amdsstal" path="res://assets/bedroom.jpg" id="2_1vprx"]
 [ext_resource type="PackedScene" uid="uid://7eq55jxxf3gn" path="res://player/player.tscn" id="3_10w8b"]
 [ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="3_whf2s"]
+[ext_resource type="PackedScene" uid="uid://irr2m8smwo8f" path="res://utils/interaction.tscn" id="5_khs6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whf2s"]
 size = Vector2(1373, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10w8b"]
 size = Vector2(850.5, 540)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2o5o"]
+size = Vector2(485.5, 571)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v47ap"]
+size = Vector2(382.75, 265.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2v72"]
+size = Vector2(249.375, 486)
 
 [node name="Bedroom" type="Node2D"]
 script = ExtResource("1_cwplf")
@@ -19,7 +29,7 @@ position = Vector2(960, 540)
 texture = ExtResource("2_1vprx")
 
 [node name="Player" parent="." instance=ExtResource("3_10w8b")]
-position = Vector2(867, 611)
+position = Vector2(904, 693)
 
 [node name="Path" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
 visible = false
@@ -87,3 +97,24 @@ polygon = PackedVector2Array(281, 253, 291, 673, 145, 680, -6, 679, -5, 261)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 polygon = PackedVector2Array(1125, 0, 1134, 168, 1154, 187, 1478, 172, 1487, -4)
+
+[node name="Interaction" parent="." instance=ExtResource("5_khs6t")]
+position = Vector2(868, 285)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
+position = Vector2(4.25, 12.5)
+shape = SubResource("RectangleShape2D_u2o5o")
+
+[node name="Interaction2" parent="." instance=ExtResource("5_khs6t")]
+position = Vector2(1216, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction2"]
+position = Vector2(110, 88)
+shape = SubResource("RectangleShape2D_v47ap")
+
+[node name="Interaction3" parent="." instance=ExtResource("5_khs6t")]
+position = Vector2(80, 409)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction3"]
+position = Vector2(166, 57)
+shape = SubResource("RectangleShape2D_b2v72")
