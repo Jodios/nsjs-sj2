@@ -20,8 +20,8 @@ position = Vector2(1745, 194)
 script = ExtResource("3_arq63")
 path_name = "1"
 to_path_name = "1"
-to = 1
 path_area = NodePath("Area2D")
+to = 1
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path"]

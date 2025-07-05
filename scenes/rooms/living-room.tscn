@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsk7x4y635orn"]
+[gd_scene load_steps=6 format=3 uid="uid://dsk7x4y635orn"]
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_btlsh"]
-[ext_resource type="PackedScene" uid="uid://7eq55jxxf3gn" path="res://player/player.tscn" id="2_16ylu"]
 [ext_resource type="Texture2D" uid="uid://d3qe8htj7378s" path="res://assets/livingr.jpg" id="3_n3xpf"]
 [ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="4_n3xpf"]
 
@@ -14,10 +13,6 @@ size = Vector2(567, 540)
 [node name="LivingRoom" type="Node2D"]
 script = ExtResource("1_btlsh")
 
-[node name="Player" parent="." instance=ExtResource("2_16ylu")]
-z_index = 1
-position = Vector2(874, 939)
-
 [node name="Livingr" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("3_n3xpf")
@@ -28,8 +23,8 @@ position = Vector2(1745, 194)
 script = ExtResource("4_n3xpf")
 path_name = "1"
 to_path_name = "1"
-to = 3
 path_area = NodePath("Area2D")
+to = 3
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path"]
@@ -50,8 +45,8 @@ position = Vector2(1734, 953)
 script = ExtResource("4_n3xpf")
 path_name = "2"
 to_path_name = "2"
-to = 3
 path_area = NodePath("Area2D")
+to = 3
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path2"]
