@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bheslm81mv62k"]
+[gd_scene load_steps=7 format=3 uid="uid://bheslm81mv62k"]
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_cwplf"]
 [ext_resource type="Texture2D" uid="uid://rq66amdsstal" path="res://assets/bedroom.jpg" id="2_1vprx"]
+[ext_resource type="PackedScene" uid="uid://7eq55jxxf3gn" path="res://player/player.tscn" id="3_10w8b"]
 [ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="3_whf2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whf2s"]
@@ -17,14 +18,17 @@ script = ExtResource("1_cwplf")
 position = Vector2(960, 540)
 texture = ExtResource("2_1vprx")
 
+[node name="Player" parent="." instance=ExtResource("3_10w8b")]
+position = Vector2(867, 611)
+
 [node name="Path" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
 visible = false
 position = Vector2(1745, 194)
 script = ExtResource("3_whf2s")
 path_name = "3"
 to_path_name = "3"
-to = 3
 path_area = NodePath("Area2D")
+to = 3
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path"]
@@ -46,8 +50,8 @@ position = Vector2(1745, 194)
 script = ExtResource("3_whf2s")
 path_name = "1"
 to_path_name = "1"
-to = 2
 path_area = NodePath("Area2D")
+to = 2
 spawn_point = NodePath("ColorRect")
 
 [node name="Area2D" type="Area2D" parent="Path2"]
