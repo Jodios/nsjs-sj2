@@ -10,7 +10,9 @@ func _ready() -> void:
 			player = child
 	if player == null:
 		player = player_scene.instantiate()
-		get_tree().root.call_deferred("add_child", player)
+		player.position.x = -1000
+		player.position.y = -1000
+		call_deferred("add_child", player)
 		
 	if Global.to_path != null:
 		var path: Path
@@ -19,4 +21,4 @@ func _ready() -> void:
 				path = child
 				
 		# if path is null then the game is broken anyway so ignoring null case
-		player.position = path.spawn_point.global_position
+		player.global_position = path.spawn_point.global_position

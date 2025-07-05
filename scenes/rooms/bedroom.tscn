@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_cwplf"]
 [ext_resource type="Texture2D" uid="uid://rq66amdsstal" path="res://assets/bedroom.jpg" id="2_1vprx"]
-[ext_resource type="PackedScene" uid="uid://o7yoihi7d0ft" path="res://utils/path.tscn" id="3_10w8b"]
+[ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="3_whf2s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2o5o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whf2s"]
 size = Vector2(1373, 540)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v47ap"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10w8b"]
 size = Vector2(850.5, 540)
 
 [node name="Bedroom" type="Node2D"]
@@ -17,8 +17,9 @@ script = ExtResource("1_cwplf")
 position = Vector2(960, 540)
 texture = ExtResource("2_1vprx")
 
-[node name="Path" parent="." node_paths=PackedStringArray("path_area", "spawn_point") instance=ExtResource("3_10w8b")]
+[node name="Path" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
 position = Vector2(1745, 194)
+script = ExtResource("3_whf2s")
 path_name = "3"
 to_path_name = "3"
 path_area = NodePath("Area2D")
@@ -29,17 +30,18 @@ spawn_point = NodePath("ColorRect")
 position = Vector2(-1154, 916)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Area2D"]
-position = Vector2(395.5, 213)
-shape = SubResource("RectangleShape2D_u2o5o")
+position = Vector2(349, 241)
+shape = SubResource("RectangleShape2D_whf2s")
 
 [node name="ColorRect" type="ColorRect" parent="Path"]
-offset_left = -860.0
-offset_top = 768.0
-offset_right = -820.0
-offset_bottom = 808.0
+offset_left = -862.0
+offset_top = 753.0
+offset_right = -822.0
+offset_bottom = 793.0
 
-[node name="Path2" parent="." node_paths=PackedStringArray("path_area", "spawn_point") instance=ExtResource("3_10w8b")]
+[node name="Path2" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
 position = Vector2(1745, 194)
+script = ExtResource("3_whf2s")
 path_name = "1"
 to_path_name = "1"
 path_area = NodePath("Area2D")
@@ -51,7 +53,7 @@ position = Vector2(-1154, 916)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2/Area2D"]
 position = Vector2(1583, -298)
-shape = SubResource("RectangleShape2D_v47ap")
+shape = SubResource("RectangleShape2D_10w8b")
 
 [node name="ColorRect" type="ColorRect" parent="Path2"]
 offset_left = -81.0

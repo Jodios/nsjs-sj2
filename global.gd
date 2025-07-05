@@ -2,6 +2,8 @@ extends Node
 
 @export var is_dev = true
 
+var day = 1
+
 enum Rooms {LivingRoom, Bedroom, Garden, Kitchen}
 var scences = {
 	Rooms.LivingRoom: preload("res://scenes/rooms/living-room.tscn"),

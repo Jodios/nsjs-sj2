@@ -4,5 +4,9 @@ extends Node2D
 
 func _ready() -> void:
 	start_button.button_up.connect(func():
-		get_tree().change_scene_to_packed(Global.scences[Global.Rooms.LivingRoom])
+		var text = "Day " + str(Global.day) + "..."
+		Transitions.timed_fade_into_with_text(
+			text, 2, 2,
+			Global.Rooms.LivingRoom
+		)
 	)
