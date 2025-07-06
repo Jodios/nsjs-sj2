@@ -1,0 +1,7 @@
+join main_character left
+main_character: ...
+update main_character [animation="Bounce"]
+main_character: ...!
+main_character: There’s a fish!
+main_character: Haha… If I tried to bother him, he might bite my arm off. He’s sure big enough.
+main_character: I can’t put the box here, how will I get it back?

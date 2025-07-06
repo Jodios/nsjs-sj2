@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var player_sprite: Sprite2D = $Texture
+@onready var foot_steps_audio: AudioStreamPlayer2D = $Audio/FootStepsAudio
 
 var previousDirection : Vector2
 var is_idle_path = "parameters/conditions/is_idle"
@@ -40,9 +41,12 @@ func _handle_movement(delta: float) -> void:
 		previousDirection = direction
 		animation_tree[is_idle_path] = false
 		animation_tree[is_walking_path] = true
+		if !foot_steps_audio.playing:
+			foot_steps_audio.play(0)
 	else:
 		animation_tree[is_idle_path] = true
 		animation_tree[is_walking_path] = false
+		foot_steps_audio.stop()
 		
 	velocity = direction * speed * delta
 

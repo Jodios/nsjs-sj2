@@ -1,21 +1,22 @@
+[style name="vn_style"]
 join main_character left
 main_character: The noise came from here...
-[wait time="1.0"]
+update main_character [animation="Heartbeat"]
 main_character: ...!
 main_character: I-Is that?
 main_character: There's someone in my living room!!
-join weird_guy right
+join weird_guy (bow) right
 weird_guy: *strange man raises eyebrow*\
 Oh, it's you.
 main_character: It's, uh... Me?
-weird_guy: Who else could it be?
+weird_guy (main_portrait): Who else could it be?
 weird_guy: I would recognize those hands anywhere.
 main_character: Umm....
 main_character: I'm sorry?
 weird_guy: No you're not.
 main_character: ...
 weird_guy: Why are you carrying that box around?
-main_character: Oh, uh? This thing? 
+main_character: Oh, uh? This thing?
 main_character: *The man blinks, and I have to concede that it was indeed a very stupid question.*
 main_character: Haha, um, It’s funny…
 main_character: I’ve been trying to put it down, but it’s pretty stuck!
@@ -42,3 +43,4 @@ main_character: Duuuude?
 main_character: *He’s not even looking at me…*
 main_character: Tch, rude. Break into my house and don’t even talk to me!
 main_character: What type of guy…
+[signal arg_type="dict" arg="{"interacted_with_ghost":true}"]

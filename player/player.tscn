@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://7eq55jxxf3gn"]
+[gd_scene load_steps=29 format=3 uid="uid://7eq55jxxf3gn"]
 
 [ext_resource type="Script" uid="uid://vamc2mboodvg" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://chwcl10tqgdc5" path="res://assets/texture.png" id="2_rkbax"]
+[ext_resource type="AudioStream" uid="uid://nr2hxgvf7nh1" path="res://assets/footsteps.wav" id="3_g1dw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
-size = Vector2(122, 130)
+size = Vector2(122, 108)
 
 [sub_resource type="Animation" id="Animation_rkbax"]
 length = 0.001
@@ -305,7 +306,7 @@ texture = ExtResource("2_rkbax")
 vframes = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 38)
+position = Vector2(-4, 47)
 shape = SubResource("RectangleShape2D_oul6g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -320,3 +321,8 @@ parameters/conditions/is_idle = false
 parameters/conditions/is_walking = false
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0, 0)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="FootStepsAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_g1dw6")

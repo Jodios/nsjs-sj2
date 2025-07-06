@@ -1,0 +1,20 @@
+join main_character left
+main_character: Mmmn…
+update main_character [animation="Bounce"]
+main_character: Aha!
+main_character: I think I can fit the box under here!
+[signal arg_type="dict" arg="{"background":"box2"}"]
+leave --All--
+main_character (fear): The box is stuck to my hands… I can’t put it down.
+main_character: What the hell?
+main_character: ...
+[signal arg_type="dict" arg="{"background":"box2_reverse"}"]
+[background arg="res://assets/black-screen.jpg" fade="0.0"]
+main_character: ...
+main_character: “......”
+main_character: .......... *huff*.
+main_character: It’s hard to sleep with a box in my hands…
+main_character: ...
+[signal arg_type="dict" arg="{"scene":"doesn't matter"}"]
+[wait time="0.5" hide_text="false"]
+[signal arg_type="dict" arg="{"dialogue":"day_2_intro"}"]

@@ -10,15 +10,16 @@
 },
 &"default_portrait": "main_portrait",
 &"description": "",
-&"display_name": "Test Name",
+&"display_name": "Charlie",
 &"mirror": false,
 &"nicknames": [""],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, 150),
 &"portraits": {
 "fear": {
 "export_overrides": {
 "image": "\"res://assets/mc fear.png\""
 },
+"ignore_char_scale": false,
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
@@ -44,5 +45,5 @@
 "scene": ""
 }
 },
-&"scale": 0.6
+&"scale": 0.8
 }

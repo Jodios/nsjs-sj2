@@ -10,10 +10,10 @@
 },
 &"default_portrait": "main_portrait",
 &"description": "",
-&"display_name": "weird_guy",
+&"display_name": "Strange Man",
 &"mirror": false,
 &"nicknames": [""],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, 50),
 &"portraits": {
 "angry": {
 "export_overrides": {
@@ -43,5 +43,5 @@
 "scene": ""
 }
 },
-&"scale": 0.6
+&"scale": 0.8
 }

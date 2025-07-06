@@ -1,0 +1,8 @@
+[signal arg_type="dict" arg="{"day":2}"]
+join main_character left
+main_character: ... *Yawwwwnnn~*
+main_character: Looks like I managed to fall asleep after all…
+update main_character (fear) [animation="Shake Y"]
+[sound path="res://assets/thud.wav" volume="0.0"]
+main_character: *Thump.
+main_character (main_portrait): What was that? It sounded like it came from the living room.

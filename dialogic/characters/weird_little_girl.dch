@@ -10,14 +10,32 @@
 },
 &"default_portrait": "main_portrait",
 &"description": "",
-&"display_name": "weird_little_girl",
+&"display_name": "Strange Little Girl",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
+"angry": {
+"export_overrides": {
+"image": "\"res://assets/wlg-angry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
 "main_portrait": {
 "export_overrides": {
-"image": "\"res://assets/portrait_sample.png\""
+"image": "\"res://assets/wlg-nuet.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"smile": {
+"export_overrides": {
+"image": "\"res://assets/wlg-amile.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
@@ -25,5 +43,5 @@
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.45
 }

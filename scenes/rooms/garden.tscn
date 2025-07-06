@@ -1,21 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1y457pcbk6xg"]
+[gd_scene load_steps=8 format=3 uid="uid://b1y457pcbk6xg"]
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_p3pel"]
 [ext_resource type="Texture2D" uid="uid://dkfuxgjgkjhs" path="res://assets/garden.jpg" id="2_1xgwl"]
 [ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="3_arq63"]
+[ext_resource type="PackedScene" uid="uid://irr2m8smwo8f" path="res://utils/interaction.tscn" id="4_bw1yn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arq63"]
 size = Vector2(716.75, 1078)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7471h"]
+radius = 152.161
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw1yn"]
+size = Vector2(222, 1085)
+
 [node name="Garden" type="Node2D"]
 script = ExtResource("1_p3pel")
+room_name = 3
 
 [node name="Garden" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("2_1xgwl")
 
 [node name="Path" type="Node2D" parent="." node_paths=PackedStringArray("path_area", "spawn_point")]
-visible = false
 position = Vector2(1745, 194)
 script = ExtResource("3_arq63")
 path_name = "1"
@@ -32,10 +39,10 @@ position = Vector2(-924.375, -569)
 shape = SubResource("RectangleShape2D_arq63")
 
 [node name="ColorRect" type="ColorRect" parent="Path"]
-offset_left = -1629.0
-offset_top = 314.0
-offset_right = -1589.0
-offset_bottom = 354.0
+offset_left = -1481.0
+offset_top = 310.0
+offset_right = -1441.0
+offset_bottom = 350.0
 
 [node name="Walls" type="Node2D" parent="."]
 visible = false
@@ -65,3 +72,29 @@ polygon = PackedVector2Array(1661, 650, 1685, 522, 1717, 481, 1772, 450, 1780, 4
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 polygon = PackedVector2Array(1466, 915, 1558, 816, 1613, 700, 1629, 637, 1622, 544, 1614, 491, 1656, 414, 1676, 349, 1658, 263, 1617, 197, 1557, 157, 1501, 103, 1467, 85, 1426, 90, 1365, 116, 1333, 120, 1200, 113, 1088, 121, 1021, 148, 970, 178, 923, 229, 894, 296, 889, 337, 897, 409, 888, 471, 852, 601, 823, 682, 792, 774, 786, 819, 787, 855, 796, 883, 814, 904, 850, 909, 892, 904, 933, 927, 995, 936, 1058, 949, 1120, 984, 1192, 1007, 1256, 1014, 1323, 1002)
+
+[node name="Interactions" type="Node2D" parent="."]
+
+[node name="Pond" parent="Interactions" instance=ExtResource("4_bw1yn")]
+position = Vector2(1212, 533)
+dialogue = 12
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Interactions/Pond"]
+polygon = PackedVector2Array(-425, 140, -382, -67, -348, -278, -253, -436, 92, -489, 382, -473, 516, -296, 496, 21, 398, 354, 240, 460, 67, 525, -200, 482, -457, 409, -494, 290)
+
+[node name="Well" parent="Interactions" instance=ExtResource("4_bw1yn")]
+position = Vector2(467, 190)
+dialogue = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Well"]
+shape = SubResource("CircleShape2D_7471h")
+
+[node name="EndScene" parent="Interactions" instance=ExtResource("4_bw1yn")]
+visible = false
+position = Vector2(126, 530)
+dialogue = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/EndScene"]
+visible = false
+position = Vector2(-49, 13)
+shape = SubResource("RectangleShape2D_bw1yn")
