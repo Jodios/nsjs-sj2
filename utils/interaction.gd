@@ -7,6 +7,7 @@ var icon_size: Vector2 = Vector2.ZERO
 
 var player: Player
 var has_interacted = false
+var cooldown: bool = false
 
 func _ready() -> void:
 	icon_size = interaction_icon.get_rect().size
@@ -14,6 +15,14 @@ func _ready() -> void:
 	if (dialogue == Global.Dialogue.End && Global.interacted_with_ghost_today) or dialogue != Global.Dialogue.End:
 		body_entered.connect(on_body_entered)
 		body_exited.connect(on_body_exited)
+	Dialogic.timeline_started.connect(func():
+		cooldown = true
+	)
+	Dialogic.timeline_ended.connect(func():
+		get_tree().create_timer(1.5).timeout.connect(func():
+			cooldown = false
+		)
+	)
 	
 func _process(_delta: float) -> void:
 	if player != null:
@@ -45,8 +54,10 @@ func on_body_exited(body: Node2D) -> void:
 	if body is Player: player = null
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("interact") and player != null:
+	if event.is_action_released("interact") and player != null && !cooldown:
 		start_dialogue()
+
+
 
 func start_dialogue() -> void:
 	var dialogue_name = get_diologue_name()
