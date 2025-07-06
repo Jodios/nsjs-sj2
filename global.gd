@@ -1,6 +1,6 @@
 extends Node
 
-@export var is_dev = true
+@export var is_dev = false
 
 var trigger_end = false
 var interacted_with_ghost_today = false
@@ -21,7 +21,9 @@ enum Dialogue {
 	LivingRoomTable,
 	Pond,
 	Well,
-	End
+	End,
+	Abyss,
+	AbyssBoxCutter,
 }
 var dialogues = {
 	Dialogue.WeirdLittleGirl: "little_girl_dialogue",
@@ -30,7 +32,8 @@ var dialogues = {
 	Dialogue.Day2Intro: "day_2_intro",
 	Dialogue.Day3Intro: "day_3_intro",
 	Dialogue.End: "end",
-	
+	Dialogue.Abyss: "abyss",
+	Dialogue.AbyssBoxCutter: "abyss_boxcutter",
 	
 	# I HATE that I'm doing this but 
 	# I'm really running out of time so fuck it
@@ -144,12 +147,14 @@ var dialogues = {
 	},
 }
 
-enum Rooms {LivingRoom, Bedroom, Garden, Kitchen}
+enum Rooms {LivingRoom, Bedroom, Garden, Kitchen, Abyss, End}
 var scences = {
 	Rooms.LivingRoom: preload("res://scenes/rooms/living-room.tscn"),
 	Rooms.Bedroom: preload("res://scenes/rooms/bedroom.tscn"),
 	Rooms.Garden: preload("res://scenes/rooms/garden.tscn"),
 	Rooms.Kitchen: preload("res://scenes/rooms/kitchen.tscn"),
+	Rooms.Abyss: preload("res://scenes/rooms/abyss.tscn"),
+	Rooms.End: preload("res://scenes/rooms/End.tscn"),
 }
 var to_path = null
 var dialogic_started = false
@@ -160,8 +165,10 @@ func _ready() -> void:
 		if input is not Dictionary: return
 		if "background" in input:
 			Backgrounds.fade_in_image(input["background"])
+		if "fin" in input:
+			Global.to_path = null
+			get_tree().change_scene_to_packed(Global.scences[Global.Rooms.Bedroom])
 		if "dialogue" in input:
-			print("Starting ", input["dialogue"], " dialogue")
 			if dialogic_started:
 				await Dialogic.timeline_ended
 			Dialogic.start(input["dialogue"])
@@ -172,6 +179,9 @@ func _ready() -> void:
 			interacted_with_ghost_today = false
 		if "trigger_end" in input:
 			trigger_end = true
+		if "to_abyss" in input:
+			Global.to_path = null
+			get_tree().change_scene_to_packed(Global.scences[Global.Rooms.Abyss])
 		if "scene" in input:
 			Global.to_path = null
 			get_tree().change_scene_to_packed(Global.scences[Global.Rooms.Bedroom])

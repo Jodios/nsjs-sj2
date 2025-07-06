@@ -34,4 +34,6 @@ join main_character left
 main_character: What happened?
 main_character: It’s really dark… It must have been another nightmare.
 main_character: I should get my lights on, maybe I can be productive…
-main_character: <Empty Text Event>
+[signal arg_type="dict" arg="{"to_abyss":true}"]
+[wait time="1.0"]
+[end_timeline]
