@@ -1,0 +1,22 @@
+join main_character left
+main_character: Take Box Cutter?
+- Yes
+- No
+	No, I can finally get rid of the box… I have to do this.
+main_character (fear): ...
+main_character: It’s a box cutter.
+[signal arg_type="dict" arg="{"background":"boxcutter"}"]
+main_character: The blade is red and rusty.
+[signal arg_type="dict" arg="{"background":"boxcutter_reverse"}"]
+main_character: I knew I should have used an axe.
+main_character: But you can’t just go out and buy one of those.
+main_character: You can buy as many box cutters as you want.
+main_character: It’s not enough to get rid of the product, is it?
+main_character: You have to get rid of all the evidence.
+main_character: Especially the weapon.
+leave --All-- [animation="Instant Out"]
+[background arg="res://assets/end.jpg" fade="0.5"]
+main_character: It’s over…
+main_character: I’m sorry I kept you two in that box for so long.
+main_character: Guess the hustle and bustle of the city just got to my head.
+[signal arg_type="dict" arg="{"fin":true}"]

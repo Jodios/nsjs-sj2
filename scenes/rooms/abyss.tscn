@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://bs3bp1xv52kij"]
+
+[ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_v70c2"]
+[ext_resource type="Texture2D" uid="uid://dc6atknx1brex" path="res://assets/abyss1.jpg" id="2_f4reu"]
+[ext_resource type="Texture2D" uid="uid://gsd6plrs41ed" path="res://assets/abyss2.jpg" id="3_guw5p"]
+[ext_resource type="Texture2D" uid="uid://clrf3npmdvw2b" path="res://assets/abyss3.jpg" id="4_78uaq"]
+[ext_resource type="Texture2D" uid="uid://uc52t6vtn7np" path="res://assets/abyss4.jpg" id="5_qtki2"]
+[ext_resource type="Texture2D" uid="uid://de5edwgknq8pi" path="res://assets/abyss5.jpg" id="6_vkp2m"]
+[ext_resource type="Texture2D" uid="uid://d2thc2gb2rq7l" path="res://assets/abyssfinal.jpg" id="7_rq0nl"]
+[ext_resource type="PackedScene" uid="uid://7eq55jxxf3gn" path="res://player/player.tscn" id="8_hcv4r"]
+[ext_resource type="PackedScene" uid="uid://irr2m8smwo8f" path="res://utils/interaction.tscn" id="9_f4reu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8s7o1"]
+size = Vector2(313, 1599)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_guw5p"]
+radius = 155.39
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78uaq"]
+radius = 244.534
+
+[node name="Abyss" type="Node2D"]
+script = ExtResource("1_v70c2")
+room_name = 4
+
+[node name="Abyss1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_f4reu")
+
+[node name="Abyss2" type="Sprite2D" parent="."]
+position = Vector2(-960, 540)
+texture = ExtResource("3_guw5p")
+
+[node name="Abyss3" type="Sprite2D" parent="."]
+position = Vector2(-2880, 540)
+texture = ExtResource("4_78uaq")
+
+[node name="Abyss4" type="Sprite2D" parent="."]
+position = Vector2(-4799.84, 540)
+texture = ExtResource("5_qtki2")
+
+[node name="Abyss5" type="Sprite2D" parent="."]
+position = Vector2(-6720, 540)
+texture = ExtResource("6_vkp2m")
+
+[node name="Abyssfinal" type="Sprite2D" parent="."]
+position = Vector2(-8640, 540)
+texture = ExtResource("7_rq0nl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-9234, 270, -9119, 162, -8926, 105, -8589, 131, -8499, 144, -7769, 117, -6705, 68, -4917, 74, -763, 66, 1915, 118, 1918, -333, -10046, -141, -10017, 1416, 1925, 1308, 1921, 1080, 1922, 972, -2544, 999, -5767, 999, -7739, 950, -7998, 888, -8273, 919, -8528, 895, -8729, 973, -8933, 980, -9157, 878, -9290, 712, -9341, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2049.5, 505.5)
+shape = SubResource("RectangleShape2D_8s7o1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-8854, 571)
+shape = SubResource("CircleShape2D_guw5p")
+
+[node name="Player" parent="." instance=ExtResource("8_hcv4r")]
+z_index = 4
+position = Vector2(1824, 465)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-16, 13)
+limit_left = -9600
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="Interaction" parent="." instance=ExtResource("9_f4reu")]
+position = Vector2(-8857, 580)
+dialogue = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
+shape = SubResource("CircleShape2D_78uaq")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://rfaluibgswwc"]
+
+[ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_ss8o0"]
+[ext_resource type="Texture2D" uid="uid://de5edwgknq8pi" path="res://assets/abyss5.jpg" id="2_yjwuk"]
+
+[node name="End" type="Node2D"]
+script = ExtResource("1_ss8o0")
+
+[node name="Abyss5" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_yjwuk")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 806.0
+offset_top = 322.0
+offset_right = 1010.0
+offset_bottom = 599.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "The 
+End"

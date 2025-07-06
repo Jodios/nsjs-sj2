@@ -1,13 +1,17 @@
 class_name Room
 extends Node2D
 
-enum room_name_enum {KITCHEN, BEDROOM, LIVING_ROOM, GARDEN}
+enum room_name_enum {KITCHEN, BEDROOM, LIVING_ROOM, GARDEN, ABYSS}
 @export var room_name: room_name_enum
 
 var player_scene: PackedScene = preload("res://player/player.tscn")
 var player: Player
 
 func _ready() -> void:
+	if room_name == room_name_enum.ABYSS:
+		if Global.dialogic_started:
+			await Dialogic.timeline_ended
+		Dialogic.start(Global.dialogues[Global.Dialogue.Abyss])
 	if Global.day == 2 and room_name == room_name_enum.LIVING_ROOM and !Global.interacted_with_ghost_today:
 		Dialogic.start(Global.dialogues[Global.Dialogue.WeirdGuy])
 	if Global.day == 3 and room_name == room_name_enum.KITCHEN and !Global.interacted_with_ghost_today:

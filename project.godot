@@ -32,6 +32,8 @@ directories/dch_directory={
 "weird_little_girl": "res://dialogic/characters/weird_little_girl.dch"
 }
 directories/dtl_directory={
+"abyss": "res://dialogic/timelines/abyss.dtl",
+"abyss_boxcutter": "res://dialogic/timelines/abyss_boxcutter.dtl",
 "bed_1_diologue": "res://dialogic/timelines/bed_1_diologue.dtl",
 "bed_2_diologue": "res://dialogic/timelines/bed_2_diologue.dtl",
 "bed_3_diologue": "res://dialogic/timelines/bed_3_diologue.dtl",
