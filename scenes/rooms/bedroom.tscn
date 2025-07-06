@@ -23,6 +23,7 @@ size = Vector2(249.375, 486)
 
 [node name="Bedroom" type="Node2D"]
 script = ExtResource("1_cwplf")
+room_name = 1
 
 [node name="Bedroom" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -98,24 +99,29 @@ polygon = PackedVector2Array(281, 253, 291, 673, 145, 680, -6, 679, -5, 261)
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 polygon = PackedVector2Array(1125, 0, 1134, 168, 1154, 187, 1478, 172, 1487, -4)
 
-[node name="Interaction" parent="." instance=ExtResource("5_khs6t")]
-position = Vector2(868, 285)
-dialogue = 1
+[node name="Interactions" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
+[node name="Bed" parent="Interactions" instance=ExtResource("5_khs6t")]
+position = Vector2(868, 285)
+dialogue = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Bed"]
 position = Vector2(4.25, 12.5)
 shape = SubResource("RectangleShape2D_u2o5o")
 
-[node name="Interaction2" parent="." instance=ExtResource("5_khs6t")]
+[node name="BedsideTable" parent="Interactions" instance=ExtResource("5_khs6t")]
 position = Vector2(1216, 48)
+dialogue = 6
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/BedsideTable"]
 position = Vector2(110, 88)
 shape = SubResource("RectangleShape2D_v47ap")
 
-[node name="Interaction3" parent="." instance=ExtResource("5_khs6t")]
+[node name="Interaction3" parent="Interactions" instance=ExtResource("5_khs6t")]
+process_mode = 4
+visible = false
 position = Vector2(80, 409)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Interaction3"]
 position = Vector2(166, 57)
 shape = SubResource("RectangleShape2D_b2v72")

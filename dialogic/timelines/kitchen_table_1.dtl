@@ -1,0 +1,6 @@
+join main_character left
+main_character: I set out two plates earlier, but I live alone.
+main_character: Can fault a guy for hoping, can you?
+[wait time="1.5"]
+update main_character (sigh)
+It won’t fit underneath…

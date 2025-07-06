@@ -1,0 +1,14 @@
+[style name="vn_style"]
+[background arg="res://assets/black-screen.jpg" fade="0.0"]
+main_character: I moved to this cabin a while ago.
+main_character: Guess the hustle and bustle of the city just got to my head.
+main_character: It’s way out in the middle of nowhere, though.
+main_character: Awful lonely out here.
+[signal arg_type="dict" arg="{"background":"box"}"]
+main_character: When I moved here, I only had one box.
+main_character: I’m sure I had more than one box of stuff, but…
+main_character: Guess I only had room in my car for so much, huh?
+main_character: I can’t say I remember what all I packed…
+[signal arg_type="dict" arg="{"background":"box_reverse"}"]
+[wait time="2.0"]
+[signal arg_type="dict" arg="{"dialogue":"intro_bedroom_dialogue"}"]

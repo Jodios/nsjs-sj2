@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsk7x4y635orn"]
+[gd_scene load_steps=10 format=3 uid="uid://dsk7x4y635orn"]
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_btlsh"]
 [ext_resource type="Texture2D" uid="uid://d3qe8htj7378s" path="res://assets/livingr.jpg" id="3_n3xpf"]
+[ext_resource type="PackedScene" uid="uid://irr2m8smwo8f" path="res://utils/interaction.tscn" id="4_6ed0u"]
 [ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="4_n3xpf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3xpf"]
@@ -10,8 +11,18 @@ size = Vector2(567, 540)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ed0u"]
 size = Vector2(567, 540)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elg2t"]
+size = Vector2(649, 295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74aqd"]
+size = Vector2(314.5, 457)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2ntc"]
+size = Vector2(535, 542)
+
 [node name="LivingRoom" type="Node2D"]
 script = ExtResource("1_btlsh")
+room_name = 2
 
 [node name="Livingr" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -77,10 +88,36 @@ polygon = PackedVector2Array(797, 439, 785, 483, 774, 595, 774, 814, 778, 844, 8
 polygon = PackedVector2Array(599, 600, 616, 731, 732, 709, 715, 626, 714, 590, 658, 622)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
-polygon = PackedVector2Array(711, 357, 753, 344, 806, 350, 888, 354, 971, 358, 1062, 344, 1132, 326, 1170, 339, 1202, 335, 1241, 315, 1248, 300, 1247, 213, 1238, 163, 1215, 135, 1189, 124, 1131, 105, 1093, 94, 967, 89, 857, 96, 781, 109, 692, 136, 669, 168, 662, 219, 668, 301, 678, 346)
+polygon = PackedVector2Array(711, 357, 753, 344, 806, 350, 888, 354, 971, 358, 1062, 344, 1132, 326, 1170, 339, 1202, 335, 1241, 315, 1248, 300, 1247, 213, 1238, 163, 1215, 135, 1189, 124, 1126, 128, 1092, 131, 964, 135, 855, 130, 781, 135, 692, 136, 669, 168, 662, 219, 668, 301, 678, 346)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 polygon = PackedVector2Array(1298, 734, 1289, 754, 1289, 787, 1298, 806, 1358, 813, 1436, 803, 1460, 809, 1493, 783, 1511, 743, 1504, 434, 1483, 402, 1429, 389, 1371, 392, 1279, 414, 1282, 471, 1294, 479, 1293, 561, 1297, 579, 1312, 591, 1301, 609, 1303, 694, 1306, 708, 1326, 713, 1324, 731)
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 polygon = PackedVector2Array(1673, 1081, 1672, 1189, -142, 1184, -144, -91, 1678, -100, 1675, 0, 0, 0, 0, 1080, 668, 1080, 669, 1050, 1249, 1041, 1252, 1080)
+
+[node name="Interactions" type="Node2D" parent="."]
+
+[node name="Couch1" parent="Interactions" instance=ExtResource("4_6ed0u")]
+position = Vector2(952, 234)
+dialogue = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Couch1"]
+position = Vector2(-9.5, -19.5)
+shape = SubResource("RectangleShape2D_elg2t")
+
+[node name="Couch2" parent="Interactions" instance=ExtResource("4_6ed0u")]
+position = Vector2(1377, 604)
+dialogue = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Couch2"]
+position = Vector2(34.25, 0.5)
+shape = SubResource("RectangleShape2D_74aqd")
+
+[node name="Table" parent="Interactions" instance=ExtResource("4_6ed0u")]
+position = Vector2(946, 657)
+dialogue = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Table"]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_f2ntc")

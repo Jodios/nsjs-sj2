@@ -1,0 +1,37 @@
+join main_character left
+main_character: Geez, it’s getting cold out. I should get insi-
+main_character: ...
+main_character: What?
+main_character: The door…
+main_character: It’s wrapped in thick strands of hair.
+main_character: It won’t budge!
+[music path="res://assets/static_noise.mp3" fade="0.0" volume="-30.0"]
+main_character: *Snap… crackle…. pop…*
+main_character: *I hear the sounds of static over my shoulder.*
+TV: 'Found dead… Ruderburg street…'
+main_character: What? Who’s there?
+main_character: *It sounds like a news station. I can kind of see through the window that the living room television is on.*
+update main_character (fear) [animation="Tada"]
+main_character: Gah- Oof!
+main_character: *Before I can process anything, I’m tugged back by the feet.*
+main_character: *The breath is momentarily knocked out of me as I hit the ground, and it doesn’t take long for me to be dragged backwards*
+leave --All-- [animation="Instant Out"]
+[signal arg_type="dict" arg="{"background":"drag"}"]
+[wait_input]
+[signal arg_type="dict" arg="{"background":"drag_reverse"}"]
+join main_character left [animation="Instant In"]
+update main_character [animation="Shake X"]
+main_character: Hey! W-Who’s there? What’s happening?
+main_character: Hello?!
+main_character: Help me!
+main_character: No, no, nonono, someone!
+leave --All-- [animation="Instant Out"]
+[background arg="res://assets/black-screen.jpg" fade="1.0"]
+[clear time="1.0" text="false" portraits="false" background="false" positions="false" style="false"]
+main_character: ...
+main_character: *Groan…*
+join main_character left
+main_character: What happened?
+main_character: It’s really dark… It must have been another nightmare.
+main_character: I should get my lights on, maybe I can be productive…
+main_character: <Empty Text Event>

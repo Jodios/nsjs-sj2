@@ -8,6 +8,8 @@ var play_button_hovered = false
 var exit_button_hovered = false
 
 func _ready() -> void:
+	#Transitions.fade_into(Global.Rooms.Bedroom)
+	#return
 	start_button_area.mouse_entered.connect(func():
 		animation_player.play("hover_play")
 		play_button_hovered = true
@@ -37,6 +39,7 @@ func _input(event: InputEvent) -> void:
 			get_tree().quit()
 
 func start_game() -> void:
+	Dialogic.start(Global.dialogues[Global.Dialogue.Intro])
 	Transitions.fade_into(Global.Rooms.Bedroom)
 	return
 	var text = "Day " + str(Global.day) + "..."

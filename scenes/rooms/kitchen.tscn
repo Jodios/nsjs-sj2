@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccouvblhy0msa"]
+[gd_scene load_steps=12 format=3 uid="uid://ccouvblhy0msa"]
 
 [ext_resource type="Script" uid="uid://bbkckdpfgxexy" path="res://scenes/rooms/room.gd" id="1_3w07q"]
 [ext_resource type="Texture2D" uid="uid://c20lygbangg4f" path="res://assets/kitchen.jpg" id="2_p7bu6"]
 [ext_resource type="Script" uid="uid://dfsj77j4wxfw7" path="res://utils/path.gd" id="3_sqdrw"]
+[ext_resource type="PackedScene" uid="uid://irr2m8smwo8f" path="res://utils/interaction.tscn" id="4_2812u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqdrw"]
 size = Vector2(340.5, 155)
@@ -12,6 +13,18 @@ size = Vector2(340.5, 155)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtubd"]
 size = Vector2(340.5, 155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njvo0"]
+size = Vector2(419, 642)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_581re"]
+size = Vector2(231, 283.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5en3"]
+size = Vector2(309.5, 308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m75iv"]
+size = Vector2(305.5, 326)
 
 [node name="Kitchen" type="Node2D"]
 script = ExtResource("1_3w07q")
@@ -102,3 +115,37 @@ polygon = PackedVector2Array(-33, 38, -865, 38, -867, 1122, 1057, 1118, 1057, 11
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls/StaticBody2D"]
 position = Vector2(866, -38)
 polygon = PackedVector2Array(308, 39, 403, 39, 576, 38, 573, 95, 408, 97, 396, 202, 403, 381, 431, 425, 430, 464, 398, 492, 393, 526, 394, 720, 405, 747, 392, 802, 400, 1024, 423, 1052, 554, 1050, 549, 1119, 1109, 1119, 1100, -98, 308, -92)
+
+[node name="Interactions" type="Node2D" parent="."]
+
+[node name="Table" parent="Interactions" instance=ExtResource("4_2812u")]
+position = Vector2(564, 480)
+dialogue = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Table"]
+position = Vector2(49.5, 31)
+shape = SubResource("RectangleShape2D_njvo0")
+
+[node name="ChoppingBoard" parent="Interactions" instance=ExtResource("4_2812u")]
+position = Vector2(1360, 869)
+dialogue = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/ChoppingBoard"]
+position = Vector2(-40.5, 28.25)
+shape = SubResource("RectangleShape2D_581re")
+
+[node name="Stove" parent="Interactions" instance=ExtResource("4_2812u")]
+position = Vector2(1389, 571)
+dialogue = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Stove"]
+position = Vector2(-47.25, 1)
+shape = SubResource("RectangleShape2D_n5en3")
+
+[node name="Fridge" parent="Interactions" instance=ExtResource("4_2812u")]
+position = Vector2(1382, 204)
+dialogue = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Fridge"]
+position = Vector2(-29.25, 14)
+shape = SubResource("RectangleShape2D_m75iv")

@@ -1,0 +1,13 @@
+join main_character left
+main_character: Echo! Echo, echo, echo…
+main_character: ...
+main_character: How deep is this thing, anyways?
+main_character: ...?
+main_character: There’s a little statue next to the bucket. How have I never noticed that..?
+leave --All--
+[signal arg_type="dict" arg="{"background":"statue"}"]
+[wait_input]
+[signal arg_type="dict" arg="{"background":"statue_reverse"}"]
+[wait time="2.0"]
+join main_character left
+main_character: *Yawwwn*, it’s pretty late…

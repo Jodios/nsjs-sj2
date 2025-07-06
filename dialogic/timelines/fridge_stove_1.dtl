@@ -1,0 +1,6 @@
+join main_character left
+Eat something?
+- Breakfast couldn’t hurt
+	main_character: There was a slice of strawberry pie left. The color was so strong it stained my teeth red!
+- Maybe later
+	[end_timeline]

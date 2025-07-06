@@ -21,24 +21,60 @@ Global="*res://global.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Transitions="*res://utils/transitions/transitions.tscn"
 GlobalMusic="*res://utils/global_music.tscn"
+Backgrounds="*res://utils/backgrounds/backgrounds.tscn"
 
 [dialogic]
 
 directories/dch_directory={
+"TV": "res://dialogic/characters/TV.dch",
 "main_character": "res://dialogic/characters/main_character.dch",
 "weird_guy": "res://dialogic/characters/weird_guy.dch",
 "weird_little_girl": "res://dialogic/characters/weird_little_girl.dch"
 }
 directories/dtl_directory={
+"bed_1_diologue": "res://dialogic/timelines/bed_1_diologue.dtl",
+"bed_2_diologue": "res://dialogic/timelines/bed_2_diologue.dtl",
+"bed_3_diologue": "res://dialogic/timelines/bed_3_diologue.dtl",
+"bed_4_diologue": "res://dialogic/timelines/bed_4_diologue.dtl",
+"bedside_table_1": "res://dialogic/timelines/bedside_table_1.dtl",
+"bedside_table_2": "res://dialogic/timelines/bedside_table_2.dtl",
+"couch_1": "res://dialogic/timelines/couch_1.dtl",
+"couch_2": "res://dialogic/timelines/couch_2.dtl",
+"cutting_board_1": "res://dialogic/timelines/cutting_board_1.dtl",
+"cutting_board_2": "res://dialogic/timelines/cutting_board_2.dtl",
+"cutting_board_3": "res://dialogic/timelines/cutting_board_3.dtl",
+"day_2_intro": "res://dialogic/timelines/day_2_intro.dtl",
+"day_3_intro": "res://dialogic/timelines/day_3_intro.dtl",
+"end": "res://dialogic/timelines/end.dtl",
+"fridge_stove_1": "res://dialogic/timelines/fridge_stove_1.dtl",
+"fridge_stove_2": "res://dialogic/timelines/fridge_stove_2.dtl",
+"fridge_stove_3": "res://dialogic/timelines/fridge_stove_3.dtl",
+"intro_bedroom_dialogue": "res://dialogic/timelines/intro_bedroom_dialogue.dtl",
+"intro_dialogue": "res://dialogic/timelines/intro_dialogue.dtl",
+"kitchen_table_1": "res://dialogic/timelines/kitchen_table_1.dtl",
+"kitchen_table_2": "res://dialogic/timelines/kitchen_table_2.dtl",
 "little_girl_dialogue": "res://dialogic/timelines/little_girl_dialogue.dtl",
+"living_room_table_1": "res://dialogic/timelines/living_room_table_1.dtl",
+"living_room_table_2": "res://dialogic/timelines/living_room_table_2.dtl",
+"pond_1": "res://dialogic/timelines/pond_1.dtl",
+"pond_2": "res://dialogic/timelines/pond_2.dtl",
+"pond_3": "res://dialogic/timelines/pond_3.dtl",
+"pond_4": "res://dialogic/timelines/pond_4.dtl",
 "sample": "res://dialogic/sample.dtl",
-"weird_guy_dialogue": "res://dialogic/timelines/weird_guy_dialogue.dtl"
+"weird_guy_dialogue": "res://dialogic/timelines/weird_guy_dialogue.dtl",
+"well_1": "res://dialogic/timelines/well_1.dtl",
+"well_2": "res://dialogic/timelines/well_2.dtl",
+"well_3": "res://dialogic/timelines/well_3.dtl",
+"well_4": "res://dialogic/timelines/well_4.dtl"
 }
+layout/style_list=["res://dialogic/styles/vn_style.tres"]
+layout/default_style="res://dialogic/styles/vn_style.tres"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

@@ -1,0 +1,9 @@
+join main_character left
+update main_character [animation="Shake X"]
+main_character: Ech-! Gah, what the hell!?
+main_character: *There’s a ribbon wrapped around my ankle and tied in a little bow.*
+main_character: *And the rope that used to be tied to the bucket is gone.*
+main_character: What the- For real? It’s like someone’s trying to kill me out here…
+main_character: *I swear I can hear someone laughing, but when I look around, there’s nobody there.*
+main_character: *There’s another statue at the foot of the well. Right next to the first one.*
+[signal arg_type="dict" arg="{"trigger_end":true}"]

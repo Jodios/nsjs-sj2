@@ -1,0 +1,50 @@
+[style name="vn_style"]
+join main_character left
+main_character: Oh, come on!
+join weird_little_girl right [length="2.0" wait="true"]
+main_character (fear): Gasp!*
+main_character (main_portrait): Woah, where did you come from?
+weird_little_girl: I- I live here, why are YOU here?
+weird_little_girl: Are you really from here?
+weird_little_girl: Cause you’re really weird looking.
+main_character: ??
+main_character: W-Wow, that was… Really rude.
+weird_little_girl: Oh… I’m sorry.
+weird_little_girl: It’s just that you have this look to you.
+weird_little_girl: And you smell!
+weird_little_girl: Like rotting meat, you do.
+main_character (main_portrait): *Seriously..? Can I catch a break around here..?*
+weird_little_girl: Is it the box? Tell me what’s in there, so I can avoid it!
+main_character: J-Jeez, you’ve got some manners, don’t you?
+weird_little_girl: Um…
+weird_little_girl (angry): Well, tell me! What’s in there!?
+weird_little_girl: I know you know! There’s no way to just forget!
+weird_little_girl: Especially not when it smells like that.
+main_character: I don’t know what’s in there. Does it really smell that bad, though?
+weird_little_girl: It absolutely does.
+weird_little_girl: But a pig can’t smell the shit it rolls around in, can it?
+weird_little_girl: Or maybe you like the smell.
+main_character (fear): What?!
+main_character: Where’d a girl like you learn a phrase like that?
+main_character (main_portrait): Can you just get out of here so I can eat?
+weird_little_girl (smile): Teehee… I’d much rather you starve.
+weird_little_girl: Maybe then you’ll understand it, won’t you?
+weird_little_girl: I hope you will.
+main_character: Wh- Hey!
+[sound path="res://assets/fridge_fall.mp3" volume="-20.0"]
+weird_little_girl: Eep!
+update main_character (fear) [mirrored="true"]
+leave weird_little_girl
+main_character: *The fridge just crashed to the ground…*
+main_character: *And worse, it almost hit me!*
+main_character: What the hell was-
+update main_character (main_portrait) [mirrored="false"]
+main_character: Huh?
+main_character (sigh): *The girl is gone…*
+*She left behind a mangy stuffed bear. It’s soaked to the point of crusting with some putrid, rotting brown liquid. Gross…*
+leave --All--
+[signal arg_type="dict" arg="{"background":"bear"}"]
+[wait_input]
+[signal arg_type="dict" arg="{"background":"bear_reverse"}"]
+[wait time="2.0"]
+[signal arg_type="dict" arg="{"interacted_with_ghost":true}"]

@@ -1,0 +1,6 @@
+join main_character left
+Eat something?
+- Breakfast couldn’t hurt
+	I feel bad for eating this apple, there used to be a worm living very happily in there! Now, he’s… Well, extra protein is good, isn’t it?
+- Maybe later
+	[end_timeline]
