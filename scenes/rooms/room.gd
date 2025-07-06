@@ -8,9 +8,11 @@ var player_scene: PackedScene = preload("res://player/player.tscn")
 var player: Player
 
 func _ready() -> void:
+	GlobalMusic.play_background_music()
 	if room_name == room_name_enum.ABYSS:
 		if Global.dialogic_started:
 			await Dialogic.timeline_ended
+		GlobalMusic.play_background_music_abyss()
 		Dialogic.start(Global.dialogues[Global.Dialogue.Abyss])
 	if Global.day == 2 and room_name == room_name_enum.LIVING_ROOM and !Global.interacted_with_ghost_today:
 		Dialogic.start(Global.dialogues[Global.Dialogue.WeirdGuy])

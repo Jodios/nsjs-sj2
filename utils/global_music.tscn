@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf1pa05hh38lo"]
+[gd_scene load_steps=4 format=3 uid="uid://bf1pa05hh38lo"]
 
 [ext_resource type="Script" uid="uid://dd0rcm28h68gd" path="res://utils/global_music.gd" id="1_bf5uc"]
-[ext_resource type="AudioStream" uid="uid://dcsjs7qc0fd68" path="res://assets/music/0507moodypiano.mp3" id="2_jvnst"]
+[ext_resource type="AudioStream" uid="uid://cse5r4ulgmx4f" path="res://assets/music/boxed.ogg" id="2_bf5uc"]
+[ext_resource type="AudioStream" uid="uid://bdu85cgjuldl" path="res://assets/abyss_audio.mp3" id="3_jvnst"]
 
 [node name="GlobalMusic" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_bf5uc")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_jvnst")
+stream = ExtResource("2_bf5uc")
+
+[node name="AbyssBackground" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jvnst")
